@@ -1,0 +1,232 @@
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+  body {
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 20px;
+     line-height: 120%;
+  }
+
+  h1 {
+     font-family: 'Amatic SC';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 148px;
+     line-height: 187px;
+     font-variant: all-small-caps;
+  }
+
+  h2 {
+     font-family: 'Amatic SC';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 64px;
+     line-height: 81px;
+     /* identical to box height */
+
+     font-variant: all-small-caps;
+  }
+
+  h3 {
+     font-family: 'Amatic SC';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 40px;
+     line-height: 50px;
+     font-variant: all-small-caps;
+  }
+
+  h4 {
+     font-family: 'Amatic SC';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 24px;
+     line-height: 30px;
+     font-variant: all-small-caps;
+  }
+
+  .menu {
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 22px;
+  }
+
+  .menu_2 {
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 22px;
+  }
+
+  .dropdown-menu.show {
+     background-color: #EEFBEA;
+  }
+
+  .btn {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 209px;
+     height: 46px;
+     background: #EEFBEA;
+     border: 2px solid #800000;
+     border-radius: 999px;
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 22px;
+     color: #800000;
+  }
+
+  .navbar-collapse {
+     margin-top: 35px;
+  }
+
+  .caption {
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 12px;
+     line-height: 16px;
+  }
+
+  label {
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 22px;
+  }
+
+  form {
+     width: 100%;
+  }
+
+  input {
+     display: flex;
+     flex-direction: row;
+     align-items: flex-start;
+     padding: 12px;
+     margin-bottom: 24px;
+     gap: 10px;
+     width: 100%;
+     height: 46px;
+     background: #EEFBEA;
+     border-radius: 8px;
+     flex: none;
+     order: 0;
+     align-self: stretch;
+     flex-grow: 0;
+     border: none;
+  }
+
+  .footer__submit {
+     padding: 80px;
+     padding-top: 40px;
+     gap: 20px;
+     height: 808px;
+     left: 100px;
+     background: #98D198;
+     border-radius: 160px 0px;
+  }
+
+  .footer__title {
+     text-align: center;
+  }
+
+  .footer__form {
+     padding-top: 40px;
+  }
+
+  .footer__text {
+     margin-top: 12px;
+  }
+
+  .footer__btn {
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding: 12px 40px;
+     gap: 10px;
+     width: 179px;
+     height: 46px;
+     background: #EEFBEA;
+     border: 2px solid #800000;
+     border-radius: 999px;
+     flex: none;
+     border: 2;
+     flex-grow: 0;
+     margin: 40px auto;
+
+     font-family: 'Open Sans';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 22px;
+     color: #0B0B0B;
+  }
+
+  .footer__btn:hover,
+  .btn:hover {
+     background: #9BE481;
+     color: #800000;
+  }
+
+  .footer__block {
+     border-left: 2px solid #800000;
+     border-top: 2px solid #800000;
+     border-radius: 160px 0;
+  }
+
+  .footer__address,
+  .footer__phone {
+     display: flex;
+     gap: 18px;
+     margin-bottom: 28px;
+  }
+
+  .footer__addressblock {
+     margin-top: 80px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 80px;
+  }
+
+  .footer__contacts {
+     width: 80%;
+     margin: 50px auto;
+  }
+
+  .footer__social {
+     display: flex;
+     gap: 22px;
+     margin: 21px 0 70px 0;
+  }
+
+  .footer__footer {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 100px;
+     margin-top: 60px;
+  }
+
+  .develop {
+     display: flex;
+     gap: 4px;
+     align-items: center;
+  }
+
+  .develop__logo {
+     width: 42px;
+     height: 42px;
+     border-radius: 8px;
+  }
