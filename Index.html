@@ -35,11 +35,21 @@
                      </defs>
                   </svg>
                </a>
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button> -->
+
+               <button class="navbar-toggler first-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <div class="animated-icon1"><span></span><span></span><span></span></div>
                </button>
+
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav m-auto mb-2 mb-lg-0 menu">
                      <li class="nav-item dropdown">
@@ -96,6 +106,28 @@
                   <button class="menu__btn" type="submit">
                      Замовити урок
                   </button>
+                  <div class="icon__social menu__iconsocial">
+                     <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="38" height="38" rx="7" fill="#EEFBEA" stroke="#0B0B0B"
+                           stroke-width="2" />
+                        <path
+                           d="M28.6402 13.2069H30.8336V9.49686C29.7716 9.38644 28.7046 9.33192 27.6369 9.33353C24.4636 9.33353 22.2936 11.2702 22.2936 14.8169V17.8735H18.7119V22.0269H22.2936V32.6669H26.5869V22.0269H30.1569L30.6936 17.8735H26.5869V15.2252C26.5869 14.0002 26.9136 13.2069 28.6402 13.2069Z"
+                           fill="#0B0B0B" />
+                     </svg>
+
+                     <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="38" height="38" rx="7" fill="#EEFBEA" stroke="#0B0B0B"
+                           stroke-width="2" />
+                        <path
+                           d="M21 29C25.4183 29 29 25.4183 29 21C29 16.5817 25.4183 13 21 13C16.5817 13 13 16.5817 13 21C13 25.4183 16.5817 29 21 29Z"
+                           stroke="#0B0B0B" stroke-width="3" stroke-miterlimit="10" />
+                        <path
+                           d="M32.5 12C33.8807 12 35 10.8807 35 9.5C35 8.11929 33.8807 7 32.5 7C31.1193 7 30 8.11929 30 9.5C30 10.8807 31.1193 12 32.5 12Z"
+                           fill="#0B0B0B" />
+                     </svg>
+
+
+                  </div>
                </div>
             </div>
          </nav>
@@ -106,7 +138,7 @@
       </div>
       <footer class="footer">
          <div class="row footer__block">
-            <div class="col-md-6 footer__submit" style="background-color: #98D198">
+            <div class="col-lg-6 footer__submit" style="background-color: #98D198">
                <h3 class="footer__title">Запис на урок</h3>
                <div class="footer__text">Заповніть форму і ми обов’язково звя’жемось з вами для уточнення деталей</div>
                <form action="#" class="footer__form">
@@ -132,7 +164,7 @@
                   надаєте
                   згоду на обробку персональних даних.</div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                <div class="footer__addressblock">
                   <h3 class="footer__title">Контакти</h3>
                   <div class="footer__contacts">
@@ -154,7 +186,7 @@
                      </div>
                   </div>
                   <div class="footer__text">Слідкуйте за нами в соцмережах</div>
-                  <div class="footer__social">
+                  <div class="icon__social">
                      <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1.5" y="1.66675" width="38" height="38" rx="7" stroke="#0B0B0B" stroke-width="2" />
                         <path
@@ -172,7 +204,7 @@
                      </svg>
 
                   </div>
-                  <button type="submit" class=" footer__btn">Share</button>
+                  <button type="submit" class=" footer__btn">Поділитись</button>
 
                </div>
             </div>
@@ -201,6 +233,23 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"></script>
+   <script>
+      /* burger menu script */
+      document.querySelector('.first-button').addEventListener('click', function () {
+
+         document.querySelector('.animated-icon1').classList.toggle('open');
+      });
+      document.querySelector('.second-button').addEventListener('click', function () {
+
+         document.querySelector('.animated-icon2').classList.toggle('open');
+      });
+      document.querySelector('.third-button').addEventListener('click', function () {
+
+         document.querySelector('.animated-icon3').classList.toggle('open');
+      });
+
+
+   </script>
 </body>
 
 </html>
