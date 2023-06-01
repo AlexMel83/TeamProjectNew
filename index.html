@@ -6,8 +6,6 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Art-studio Leonardo</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link
@@ -16,92 +14,63 @@
    <link rel="stylesheet" href="Style.css">
 </head>
 
-<body style="background-color: #EEFBEA">
-   <div class="container">
+<body>
+   <div class="wrapper">
       <header class="header" id="header">
-         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-               <a class="navbar-brand" href="#">
-                  <img src="img/logo_leonardo.svg" alt="logo">
+         <div class="container">
+            <div class="header__body">
+               <a href="#" class="header__logo" target="blank">
+                  <img src="img/logo_leonardo.svg" alt="logo" class="header__logo_img">
                </a>
-               <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-               </button> -->
-
-               <button class="navbar-toggler first-button" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <div class="animated-icon1"><span></span><span></span><span></span></div>
-               </button>
-
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav m-auto mb-2 mb-lg-0 menu">
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                           Про студію
-                        </a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item menu_2" href="#">Галерея </a></li>
+               <div class="header__burger">
+                  <span></span>
+               </div>
+               <nav class="header__menu menu">
+                  <ul class="menu__list">
+                     <li>
+                        <a href="#" class="menu__link">Про студію</a>
+                        <span class="menu__arrow arrow"></span>
+                        <ul class="sub-menu__list">
                            <li>
-                              <hr class="dropdown-divider" />
-                           </li>
-                           <li><a class="dropdown-item menu_2" href="#">Викладачі</a></li>
-                           <li>
-                              <hr class="dropdown-divider" />
+                              <a href="#" class="sub-menu__link">Галерея</a>
                            </li>
                            <li>
-                              <a class="dropdown-item menu_2" href="#">Відгуки</a>
+                              <a href="#" class="sub-menu__link">Викладачі</a>
                            </li>
                            <li>
-                              <hr class="dropdown-divider" />
+                              <a href="#" class="sub-menu__link">Відгуки</a>
                            </li>
                            <li>
-                              <a class="dropdown-item menu_2" href="#">Запитання та відповіді</a>
+                              <a href="#" class="sub-menu__link">Запитання та відповіді</a>
                            </li>
                         </ul>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Майстер-класи</a>
+                     <li>
+                        <a href="#" class="menu__link">Майстер-класи</a>
                      </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                           Навчання
-                        </a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item menu_2" href="#">для дітей </a></li>
+                     <li>
+                        <a href="#" class="menu__link">Навчання</a>
+                        <span class="menu__arrow arrow"></span>
+                        <ul class="sub-menu__list">
                            <li>
-                              <hr class="dropdown-divider" />
-                           </li>
-                           <li><a class="dropdown-item menu_2" href="#">для абітурієнтів</a></li>
-                           <li>
-                              <hr class="dropdown-divider" />
+                              <a href="#" class="sub-menu__link">для дітей</a>
                            </li>
                            <li>
-                              <a class="dropdown-item menu_2" href="#">для дорослих</a>
+                              <a href="#" class="sub-menu__link">для абітурієнтів</a>
+                           </li>
+                           <li>
+                              <a href="#" class="sub-menu__link">для дорослих</a>
                            </li>
                         </ul>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Контакти</a>
+                     <li>
+                        <a href="#" class="menu__link">Контакти</a>
                      </li>
                   </ul>
-                  <button class="menu__btn" type="submit">
-                     Замовити урок
-                  </button>
-                  <div class="icon__social menu__iconsocial">
-                     <img src="img/facebook_icon.svg" alt="icon">
-                     <img src="img/instagram_icon.svg" alt="icon">
-                  </div>
-               </div>
+               </nav>
+               <button class="header__btn">Замовити урок</button>
             </div>
-         </nav>
+         </div>
 
       </header>
       <div class="content">
@@ -109,7 +78,7 @@
       </div>
       <footer class="footer">
          <div class="row footer__block">
-            <div class="col-lg-6 footer__submit" style="background-color: #98D198">
+            <div class="footer__submit" style="background-color: #98D198">
                <h3 class="footer__title">Запис на урок</h3>
                <div class="footer__text">Заповніть форму і ми обов’язково звя’жемось з вами для уточнення деталей</div>
                <form action="#" class="footer__form">
@@ -135,23 +104,27 @@
                   надаєте
                   згоду на обробку персональних даних.</div>
             </div>
-            <div class="col-lg-6">
+            <div class="footer__contact">
                <div class="footer__addressblock">
                   <h3 class="footer__title">Контакти</h3>
                   <div class="footer__contacts">
-                     <div class="footer__address">
-                        <img src="img/geo_icon.svg" alt="icon">
+                     <a href="#" class="footer__address">
+                        <div class="geoicon"></div>
                         <div class="address__text">м. Вінниця вул. Андрія Первозванного 58а</div>
-                     </div>
-                     <div class="footer__phone">
-                        <img src="img/telegram_icon.svg" alt="icon">
+                     </a>
+                     <a href="#" class="footer__phone">
+                        <div class="tgicon"></div>
                         <div class="phone__text">+380 (96) 465 67 51</div>
-                     </div>
+                     </a>
                   </div>
                   <div class="footer__text">Слідкуйте за нами в соцмережах</div>
                   <div class="icon__social">
-                     <img src="img/facebook_icon.svg" alt="icon">
-                     <img src="img/instagram_icon.svg" alt="icon">
+                     <a href="#" class="social__link">
+                        <div class="fbicon"></div>
+                     </a>
+                     <a href="#" class="social__link">
+                        <div class="instaicon"></div>
+                     </a>
                   </div>
                   <button type="submit" class=" footer__btn">Поділитись</button>
                </div>
@@ -172,24 +145,42 @@
       </footer>
    </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
    <script>
-      /* burger menu script */
-      document.querySelector('.first-button').addEventListener('click', function () {
-
-         document.querySelector('.animated-icon1').classList.toggle('open');
+      /*burger-menu*/
+      $(document).ready(function () {
+         $('.header__burger').click(function (event) {
+            $('.header__burger, .header__menu').toggleClass('active');
+            $('body').toggleClass('lock');
+         });
       });
-      document.querySelector('.second-button').addEventListener('click', function () {
+      /*sub-menu arrow*/
+      let isMobile = {
+         Android: function () { return navigator.userAgent.match(/Android/i); },
+         BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); },
+         iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
+         Opera: function () { return navigator.userAgent.match(/Opera Mini/i); },
+         Windows: function () { return navigator.userAgent.match(/IEMobile/i); },
+         any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); }
+      };
+      let body = document.querySelector('body');
+      if (isMobile.any()) {
+         body.classList.add('touch');
+         let arrow = document.querySelectorAll('.arrow');
+         for (i = 0; i < arrow.length; i++) {
+            let thisLink = arrow[i].previousElementSibling;
+            let subMenu = arrow[i].nextElementSibling;
+            let thisArrow = arrow[i];
 
-         document.querySelector('.animated-icon2').classList.toggle('open');
-      });
-      document.querySelector('.third-button').addEventListener('click', function () {
-
-         document.querySelector('.animated-icon3').classList.toggle('open');
-      });
-
+            thisLink.classList.add('parent');
+            arrow[i].addEventListener('click', function () {
+               subMenu.classList.toggle('open');
+               thisArrow.classList.toggle('active');
+            });
+         }
+      } else {
+         body.classList.add('mouse');
+      }
 
    </script>
 </body>
