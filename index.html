@@ -19,8 +19,8 @@
       <header class="header" id="header">
          <div class="container">
             <div class="header__body">
-               <a href="#" class="header__logo" target="blank">
-                  <img src="img/logo_leonardo.svg" alt="logo" class="header__logo_img">
+               <a href="#" target="blank" title="logo">
+                  <div class="header__logo"></div>
                </a>
                <div class="header__burger">
                   <span></span>
@@ -68,6 +68,14 @@
                      </li>
                   </ul>
                   <button class="header__btn">Замовити урок</button>
+                  <div class="header-icon__social">
+                     <a href="#" class="social__link" title="a">
+                        <div class="fbicon"></div>
+                     </a>
+                     <a href="#" class="social__link" title="a">
+                        <div class="instaicon"></div>
+                     </a>
+                  </div>
                </nav>
             </div>
          </div>
@@ -77,26 +85,27 @@
 
       </div>
       <footer class="footer">
-         <div class="row footer__block">
+         <div class="footer__block">
             <div class="footer__submit">
                <h3 class="footer__title">Запис на урок</h3>
                <div class="footer__text">Заповніть форму і ми обов’язково звя’жемось з вами для уточнення деталей</div>
                <form action="#" class="footer__form">
                   <div class="form__fier">
                      <label for="firstname">Ім’я *</label>
-                     <br><input type="text" name="firstname" placeholder="Ім’я">
+                     <br><input type="text" name="firstname" id="firstname" placeholder="Ім’я">
                   </div>
                   <div class="form__">
                      <label for="lastname">Прізвище</label>
-                     <br><input type="text" name="lastname" placeholder="Прізвище">
+                     <br><input type="text" name="lastname" id="lastname" placeholder="Прізвище">
                   </div>
                   <div class="form__ema">
                      <label for="email">Електронна пошта *</label>
-                     <br><input type="text" name="email" placeholder="email@gmail.com">
+                     <br><input type="email" name="email" id="email" placeholder="email@gmail.com" autocomplete="on">
                   </div>
                   <div class="form__phone">
                      <label for="phone">Телефон *</label>
-                     <br><input type="text" name="phone" placeholder="+380 (50) 123 45 67">
+                     <br><input type="phone" name="phone" id="phone" placeholder="+380 (50) 123 45 67"
+                        autocomplete="on">
                   </div>
                </form>
                <button type="submit" class="footer__btn">Відправити</button>
@@ -105,8 +114,8 @@
                   згоду на обробку персональних даних.</div>
             </div>
             <div class="footer__contact">
+               <h3 class="footer__title">Контакти</h3>
                <div class="footer__addressblock">
-                  <h3 class="footer__title">Контакти</h3>
                   <div class="footer__contacts">
                      <a href="#" class="footer__address">
                         <div class="geoicon"></div>
