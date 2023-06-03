@@ -93,20 +93,22 @@
                <div class="footer__text">Заповніть форму і ми обов’язково звя’жемось з вами для уточнення деталей</div>
                <form action="#" class="footer__form">
                   <div class="form__fierstname">
-                     <label for="firstname">Ім’я *</label>
-                     <br><input type="text" name="firstname" id="firstname" placeholder="Ім’я">
+                     <label for="fierstname">Ім’я *</label>
+                     <br><input type="text" class="fierstname" name="fierstname" id="fierstname" placeholder="Ім’я">
                   </div>
                   <div class="form__">
                      <label for="lastname">Прізвище</label>
-                     <br><input type="text" name="lastname" id="lastname" placeholder="Прізвище">
+                     <br><input type="text" name="lastname" class="lastname" id="lastname" placeholder="Прізвище">
                   </div>
                   <div class="form__ema">
                      <label for="email">Електронна пошта *</label>
-                     <br><input type="email" name="email" id="email" placeholder="email@gmail.com" autocomplete="on">
+                     <br><input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
+                        autocomplete="on">
                   </div>
                   <div class="form__phone">
                      <label for="phone">Телефон *</label>
-                     <br><input type="text" name="phone" id="phone" placeholder="+380 (50) 123 45 67" autocomplete="on">
+                     <br><input type="text" name="phone" class="phone" id="phone"
+                        placeholder="+38 ( ___ ) ____ - ___- ___" autocomplete="on">
                   </div>
                </form>
                <button type="submit" class="footer__btn">Відправити</button>
@@ -163,20 +165,22 @@
             <div class="popup__text">Заповніть форму і ми обов’язково зв’яжемось з вами для уточнення деталей</div>
             <form action="#" class="popup__form">
                <div class="form__fierstname">
-                  <label for="firstname">Ім’я *</label>
-                  <br><input type="text" name="firstname" id="firstname" placeholder="Ім’я">
+                  <label for="fierstname">Ім’я *</label>
+                  <br><input type="text" name="fierstname" class="fierstname" id="fierstname" placeholder="Ім’я">
                </div>
                <div class="form__">
                   <label for="lastname">Прізвище</label>
-                  <br><input type="text" name="lastname" id="lastname" placeholder="Прізвище">
+                  <br><input type="text" name="lastname" class="lastname" id="lastname" placeholder="Прізвище">
                </div>
                <div class="form__ema">
                   <label for="email">Електронна пошта *</label>
-                  <br><input type="email" name="email" id="email" placeholder="email@gmail.com" autocomplete="on">
+                  <br><input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
+                     autocomplete="on">
                </div>
                <div class="form__phone">
                   <label for="phone">Телефон *</label>
-                  <br><input type="text" name="phone" id="phone" placeholder="+380 (50) 123 45 67" autocomplete="on">
+                  <br><input type="number" name="phone" class="phone" id="phone"
+                     placeholder="+38 ( ___ ) ____ - ___- ___" autocomplete="on">
                </div>
             </form>
             <button type="submit" class="footer__btn">Відправити</button>
@@ -190,6 +194,79 @@
 
    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
    <script>
+      /* validation input to forms */
+      let fierstname = document.querySelectorAll('.fierstname');
+      if (fierstname.length) {
+         for (let i = 0; i < fierstname.length; i++) {
+            let regex = /[0-9]/g;
+            fierstname[i].oninput = function () {
+               this.value = this.value.replace(regex, '');
+               if (this.value.length >= 2) {
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               } else {
+                  this.classList.remove('input__correct');
+                  this.classList.add('input__error');
+               }
+            }
+         }
+      }
+
+      let lastname = document.querySelectorAll('.lastname');
+      if (lastname.length) {
+         for (let i = 0; i < lastname.length; i++) {
+            let regex = /[0-9]/g;
+            lastname[i].oninput = function () {
+               this.value = this.value.replace(regex, '');
+               if (this.value.length >= 2) {
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               } else {
+                  this.classList.remove('input__correct');
+                  this.classList.add('input__error');
+               }
+            }
+         }
+      }
+
+      let email = document.querySelectorAll('.email');
+      if (email.length) {
+         for (let i = 0; i < email.length; i++) {
+            let regex = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,6}$/;
+            email[i].oninput = function () {
+               if (this.value.match(regex)) {
+                  // this.value = this.value.replace(regex, '');
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               } else {
+                  this.classList.remove('input__correct');
+                  this.classList.add('input__error');
+               }
+            }
+         }
+      }
+
+      let phone = document.querySelectorAll('.phone');
+      if (phone.length) {
+         for (let i = 0; i < phone.length; i++) {
+            let regex = /[^0-9]/;
+            phone[i].oninput = function () {
+               this.value = this.value.replace(regex, '');
+               if (this.value.length == 12) {
+                  // this.value = this.value.replace(regex, '');
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               } else {
+                  this.classList.remove('input__correct');
+                  this.classList.add('input__error');
+               }
+               if (this.value.length > 12)
+                  this.value = this.value.slice(0, -1);
+            }
+         }
+      }
+
+
       /*burger-menu*/
       $(document).ready(function () {
          $('.header__burger').click(function (event) {

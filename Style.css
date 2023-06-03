@@ -222,6 +222,15 @@
      outline: 0 none;
   }
 
+  input.input__error {
+     background: #EEFBEA;
+     border: 1px solid #B60C0C;
+  }
+
+  input.input__correct {
+     border: none;
+  }
+
   .footer__submit {
      background-color: #98D198;
      width: 50%;
