@@ -109,7 +109,7 @@
   .sub-menu__list {
      display: none;
      position: absolute;
-     left: 30px;
+     left: 0;
      top: 10px;
      padding-top: 20px;
   }
@@ -479,12 +479,11 @@
      display: flex;
      flex-direction: column;
      align-items: stretch;
-     padding: 40px 40px 80px;
-     gap: 20px;
+     padding: 40px 80px 80px;
+     /* gap: 20px; */
      width: 680px;
      height: 868px;
      background: #98D198;
-
      position: relative;
      opacity: 0;
      transition: all 0.8s ease 0s;
@@ -492,21 +491,45 @@
   }
 
   .popup__close {
-     position: absolute;
-     right: 10px;
-     top: 10px;
-     font-size: 20px;
-     color: #000;
-     text-decoration: none;
+
+     display: block;
+     position: relative;
+     width: 25px;
+     height: 25px;
+     z-index: 5;
+     top: 13px;
+     left: 530px;
   }
 
-  .marker {
-     position: fixed;
+  .popup__close:before,
+  .popup__close:after {
+     content: '';
+     background-color: #000;
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     left: -4px;
+  }
+
+  .popup__close:before {
+     transform: rotate(45deg);
+  }
+
+  .popup__close:after {
+     transform: rotate(-45deg);
   }
 
   .popup__title {
      font-size: 40px;
-     margin-bottom: 1em;
+     margin: 30px auto 10px;
+  }
+
+  .popup__text {
+     margin-bottom: 40px;
+  }
+
+  .marker {
+     position: fixed;
   }
 
   @media (max-width: 767px) {
@@ -519,31 +542,38 @@
      }
 
      .popup__content {
-        padding: 70px 20px 40px;
-        gap: 12px;
+        padding: 60px 20px 40px;
         position: relative;
         width: 295px;
         height: 782px;
         background: #98D198;
         transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
         z-index: 5;
+        justify-content: start;
+     }
+
+     .popup__close {
+        top: -20px;
+        left: 225px;
      }
 
      .popup__title {
         margin: 0 auto;
+        margin-top: -15px;
      }
 
      .popup__text {
         font-size: 16px;
         line-height: 120%;
+        margin: 15px 0;
      }
 
      .popup__content form input {
-        margin-bottom: 30px;
+        margin-bottom: 26px;
      }
 
      .popup__content .footer__btn {
-        margin: 0 auto;
+        margin: 17px auto;
      }
 
      .popup__body {
