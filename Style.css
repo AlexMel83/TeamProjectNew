@@ -47,7 +47,21 @@
      padding: 22px 100px 100px 100px;
   }
 
-  /* sub-menu */
+  .header__body {
+     height: 124px;
+     padding: 38px 0;
+     display: flex;
+     justify-content: space-between;
+     align-items: start;
+  }
+
+  .header__menu {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     position: relative;
+     width: 100%;
+  }
 
   .menu a {
      text-decoration: none;
@@ -64,11 +78,15 @@
 
   .menu__list {
      display: flex;
+     justify-content: space-between;
+     width: 60%;
+     margin-left: 55px;
      z-index: 2;
+
   }
 
   .menu__list>li {
-     margin-right: 35px;
+     margin-left: 5px;
   }
 
   .menu__list>li:hover .sub-menu__list {
@@ -91,8 +109,8 @@
   .sub-menu__list {
      display: none;
      position: absolute;
-     left: -50px;
-     top: 20px;
+     left: 30px;
+     top: 10px;
      padding-top: 20px;
   }
 
@@ -123,7 +141,7 @@
   .arrow {
      display: none;
      position: absolute;
-     right: 0;
+     right: 5px;
      top: 7px;
      width: 0;
      height: 0;
@@ -138,7 +156,8 @@
      transform: rotate(-135deg);
   }
 
-  body.touch .arrow {
+  body.touch .arrow,
+  body.mouse .arrow {
      display: inline-block;
      /* display: none; */
   }
@@ -151,28 +170,12 @@
      display: block;
   }
 
-  /* burger menu */
-
-  .header__body {
-     height: 80px;
-     padding-top: 20px;
-     display: flex;
-     justify-content: space-between;
-     align-items: end;
-  }
-
-  .header__menu {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-  }
-
   /* footer */
 
   .footer__block {
      display: flex;
      justify-content: center;
-     gap: 20px;
+     gap: 45px;
      margin-top: 162px;
      border-left: 2px solid #800000;
      border-top: 2px solid #800000;
@@ -260,10 +263,19 @@
      flex-direction: column;
      justify-content: space-between;
      height: 100%;
-     padding-left: 80px;
+     padding-left: 25px;
   }
 
   .footer__contacts {
+     margin: 60px 0 45px 30px;
+  }
+
+  .footer__addressblock .footer__text {
+     margin-left: 40px;
+  }
+
+  .footer__addressblock .footer__btn {
+     max-width: 202px;
      margin: 50px auto;
   }
 
@@ -286,7 +298,7 @@
      line-height: 22px;
      color: #800000;
      cursor: pointer;
-     z-index: 3;
+     margin: 0 5px;
   }
 
   .footer__btn {
@@ -294,7 +306,6 @@
      gap: 10px;
      max-width: 179px;
      height: 46px;
-     border: 2;
      margin: 40px auto;
      color: #0B0B0B;
   }
@@ -327,13 +338,15 @@
      background-size: cover;
      width: 154px;
      height: 80px;
+     position: relative;
+     bottom: 38px;
+     left: 10px;
   }
 
   .icon__social {
      display: flex;
-     margin: 30px;
+     margin: 20px;
      justify-content: center;
-     padding-right: 40px;
   }
 
   .header-icon__social {
@@ -425,7 +438,78 @@
      border-radius: 8px;
   }
 
-  @media (max-width: 768px) {
+  /* Modal window */
+  .popup {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     top: 0;
+     left: 0;
+     opacity: 0;
+     visibility: hidden;
+     overflow-y: auto;
+     overflow-x: hiden;
+     transition: all 0.8s ease 0s;
+  }
+
+  .popup.open {
+     opacity: 1;
+     visibility: visible;
+     z-index: 5;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+
+  .popup.open .popup__content {
+     transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+     opacity: 1;
+  }
+
+  .popup__body {
+     min-height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 30px 10px;
+  }
+
+  .popup__content {
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     padding: 40px 40px 80px;
+     gap: 20px;
+     width: 680px;
+     height: 868px;
+     background: #98D198;
+
+     position: relative;
+     opacity: 0;
+     transition: all 0.8s ease 0s;
+     transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  }
+
+  .popup__close {
+     position: absolute;
+     right: 10px;
+     top: 10px;
+     font-size: 20px;
+     color: #000;
+     text-decoration: none;
+  }
+
+  .marker {
+     position: fixed;
+  }
+
+  .popup__title {
+     font-size: 40px;
+     margin-bottom: 1em;
+  }
+
+  @media (max-width: 767px) {
      body.lock {
         overflow: hidden;
      }
@@ -434,12 +518,45 @@
         padding: 0;
      }
 
+     .popup__content {
+        padding: 70px 20px 40px;
+        gap: 12px;
+        position: relative;
+        width: 295px;
+        height: 782px;
+        background: #98D198;
+        transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+        z-index: 5;
+     }
+
+     .popup__title {
+        margin: 0 auto;
+     }
+
+     .popup__text {
+        font-size: 16px;
+        line-height: 120%;
+     }
+
+     .popup__content form input {
+        margin-bottom: 30px;
+     }
+
+     .popup__content .footer__btn {
+        margin: 0 auto;
+     }
+
+     .popup__body {
+        position: absolute;
+        z-index: 5;
+     }
+
      .header__logo {
         width: 100px;
         height: 52px;
         position: relative;
         left: 40px;
-        top: 20px;
+        bottom: 20px;
      }
 
      .header__burger {
@@ -472,7 +589,7 @@
      .menu__list {
         display: block;
         padding-top: 130px;
-        max-width: 220px;
+        max-width: 185px;
         margin-left: 90px;
 
      }
@@ -484,7 +601,8 @@
      .sub-menu__list {
         position: relative;
         top: 0;
-        right: 0;
+        left: 0;
+        padding-top: 13px;
      }
 
      .menu__flash {
@@ -502,7 +620,7 @@
 
      /* burger */
      body.lock {
-        overflow: hiden;
+        overflow: hidden;
      }
 
      .header__body {
@@ -593,6 +711,7 @@
         border: none;
         flex-direction: column;
         justify-content: start;
+        gap: 25px;
      }
 
      .footer__submit {
@@ -638,11 +757,21 @@
      }
 
      .footer__contacts {
-        margin: 40px 45px;
+        margin: 38px 50px;
         /* padding-left: 45px; */
      }
 
      .icon__social {
-        margin: 23px 0 40px 35px;
+        margin: 23px 0 0 0;
+     }
+
+     .footer__addressblock .footer__btn {
+        max-width: 174px;
+        margin: 40px auto;
+        margin-bottom: 0;
+     }
+
+     .footer__footer {
+        padding: 0 40px;
      }
   }

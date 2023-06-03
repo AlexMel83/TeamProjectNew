@@ -16,6 +16,7 @@
 
 <body>
    <div class="wrapper">
+      <div class="marker" id="marker"></div>
       <header class="header" id="header">
          <div class="container">
             <div class="header__body">
@@ -27,7 +28,7 @@
                </div>
                <nav class="header__menu menu">
                   <div class="menu__flash"></div>
-                  <ul class="menu__list">
+                  <ul class="menu__list lock-padding">
                      <li>
                         <a href="#" class="menu__link">Про студію</a>
                         <span class="menu__arrow arrow"></span>
@@ -47,9 +48,6 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" class="menu__link">Майстер-класи</a>
-                     </li>
-                     <li>
                         <a href="#" class="menu__link">Навчання</a>
                         <span class="menu__arrow arrow"></span>
                         <ul class="sub-menu__list">
@@ -65,10 +63,13 @@
                         </ul>
                      </li>
                      <li>
+                        <a href="#" class="menu__link">Майстер-класи</a>
+                     </li>
+                     <li>
                         <a href="#" class="menu__link">Контакти</a>
                      </li>
                   </ul>
-                  <button class="header__btn">Замовити урок</button>
+                  <button class="header__btn popup-link" href="#popup">Замовити урок</button>
                   <div class="header-icon__social">
                      <a href="#" class="social__link" title="a">
                         <div class="fbicon"></div>
@@ -91,7 +92,7 @@
                <h3 class="footer__title">Запис на урок</h3>
                <div class="footer__text">Заповніть форму і ми обов’язково звя’жемось з вами для уточнення деталей</div>
                <form action="#" class="footer__form">
-                  <div class="form__fier">
+                  <div class="form__fierstname">
                      <label for="firstname">Ім’я *</label>
                      <br><input type="text" name="firstname" id="firstname" placeholder="Ім’я">
                   </div>
@@ -156,7 +157,34 @@
 
    <div class="popup" id="popup">
       <div class="popup__body">
-         <div class="popup__content"></div>
+         <div class="popup__content">
+            <a href="#marker" class="popup__close close-popup">x</a>
+            <h3 class="popup__title">Запис на урок</h3>
+            <div class="popup__text">Заповніть форму і ми обов’язково зв’яжемось з вами для уточнення деталей</div>
+            <form action="#" class="popup__form">
+               <div class="form__fierstname">
+                  <label for="firstname">Ім’я *</label>
+                  <br><input type="text" name="firstname" id="firstname" placeholder="Ім’я">
+               </div>
+               <div class="form__">
+                  <label for="lastname">Прізвище</label>
+                  <br><input type="text" name="lastname" id="lastname" placeholder="Прізвище">
+               </div>
+               <div class="form__ema">
+                  <label for="email">Електронна пошта *</label>
+                  <br><input type="email" name="email" id="email" placeholder="email@gmail.com" autocomplete="on">
+               </div>
+               <div class="form__phone">
+                  <label for="phone">Телефон *</label>
+                  <br><input type="text" name="phone" id="phone" placeholder="+380 (50) 123 45 67" autocomplete="on">
+               </div>
+            </form>
+            <button type="submit" class="footer__btn">Відправити</button>
+            <div class="footer__ofert caption">Надсилаючи заявку, Ви автоматично погоджуєтесь з публічною офертою та
+               надаєте
+               згоду на обробку персональних даних.</div>
+            </form>
+         </div>
       </div>
    </div>
 
@@ -196,6 +224,123 @@
       } else {
          body.classList.add('mouse');
       }
+
+      /* modal window script */
+      const popupLinks = document.querySelectorAll('.popup-link');
+      const bodi = document.querySelector('body');
+      const lockPadding = document.querySelectorAll('.lock-padding');
+      let unlock = true;
+      const timeout = 800;
+
+      if (popupLinks.length > 0) {
+         for (let i = 0; i < popupLinks.length; i++) {
+            const popupLink = popupLinks[i];
+            popupLink.addEventListener('click', function (e) {
+               const popupName = popupLink.getAttribute('href').replace('#', '');
+               const curentPopup = document.getElementById(popupName);
+               popupOpen(curentPopup);
+               e.preventDefault();
+            });
+         }
+      }
+
+      const popupCloseIcon = document.querySelectorAll('.close-popup');
+      if (popupCloseIcon.length > 0) {
+         for (let i = 0; i < popupCloseIcon.length; i++) {
+            const el = popupCloseIcon[i];
+            el.addEventListener('click', function (e) {
+               popupClose(el.closest('.popup'));
+               e.preventDefault();
+            });
+         }
+      }
+
+      function popupOpen(curentPopup) {
+         if (curentPopup && unlock) {
+            const popupActive = document.querySelector('.popup.open');
+            if (popupActive) {
+               popupClose(popupActive, false);
+            } else {
+               bodyLock();
+            }
+            curentPopup.classList.add('open');
+            curentPopup.addEventListener('click', function (e) {
+               if (!e.target.closest('.popup__content')) {
+                  popupClose(e.target.closest('.popup'));
+               }
+            });
+         }
+      }
+      function popupClose(popupActive, doUnlock = true) {
+         if (unlock) {
+            popupActive.classList.remove('open');
+            if (doUnlock) {
+               bodyUnLock();
+            }
+         }
+      }
+
+      function bodyLock() {
+         const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+
+         if (lockPadding.length > 0) {
+            for (let i = 0; i < lockPadding.length; i++) {
+               const el = lockPadding[i];
+               el.style.paddingRight = lockPaddingValue;
+            }
+         }
+         bodi.style.paddingRight = lockPaddingValue;
+         bodi.classList.add('lock');
+
+         unlock = false;
+         setTimeout(function () {
+            unlock = true;
+         }, timeout);
+      }
+
+      function bodyUnLock() {
+         setTimeout(function () {
+            for (let i = 0; i < lockPadding.length; i++) {
+               const el = lockPadding[i];
+               el.style.paddingRight = '0px';
+            }
+            bodi.style.paddingRight = '0px';
+            bodi.classList.remove('lock');
+         }, timeout);
+
+         unlock = false;
+         setTimeout(() => unlock = true, timeout);
+      }
+
+      document.addEventListener('keydown', function (e) {
+         if (e.which === 27) {
+            const popupActive = document.querySelector('.popup.open');
+            popupClose(popupActive);
+         }
+      });
+
+      (function () {
+         if (!Element.prototype.closest) {
+            Element.prototype.closest = function (css) {
+               var node = this;
+               while (node) {
+                  if (node.matches(css)) return node;
+                  else node = node.parentElement;
+               }
+               return null;
+            };
+         }
+      })();
+
+      (function () {
+         if (!Element.prototype.matches) {
+            Element.prototype.matches = Element.prototype.matchesSelector ||
+               Element.prototype.webkitMatchesSelector ||
+               Element.prototype.mozMatchesSelector ||
+               Element.prototype.msMatchesSelector;
+         }
+      })();
+
 
    </script>
 </body>
