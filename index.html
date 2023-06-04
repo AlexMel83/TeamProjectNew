@@ -102,7 +102,7 @@
                   </div>
                   <div class="form__ema">
                      <label for="email">Електронна пошта *</label>
-                     <br><input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
+                     <input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
                         autocomplete="on">
                   </div>
                   <div class="form__phone">
@@ -198,7 +198,7 @@
       let fierstname = document.querySelectorAll('.fierstname');
       if (fierstname.length) {
          for (let i = 0; i < fierstname.length; i++) {
-            let regex = /[0-9]/g;
+            let regex = /[^A-Za-zА-Яа-яіІёЁїЇ']/g;
             fierstname[i].oninput = function () {
                this.value = this.value.replace(regex, '');
                if (this.value.length >= 2) {
@@ -215,7 +215,7 @@
       let lastname = document.querySelectorAll('.lastname');
       if (lastname.length) {
          for (let i = 0; i < lastname.length; i++) {
-            let regex = /[0-9]/g;
+            let regex = /[^A-Za-zА-Яа-яіІёЁїЇ']/g;
             lastname[i].oninput = function () {
                this.value = this.value.replace(regex, '');
                if (this.value.length >= 2) {
@@ -233,18 +233,27 @@
       if (email.length) {
          for (let i = 0; i < email.length; i++) {
             let regex = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,6}$/;
-            email[i].oninput = function () {
+            let regexcyr = /[а-яА-ЯіІ]/g;
+            let element = email[i];
+            element.oninput = function () {
+               this.value = this.value.replace(regexcyr, '');
+            }
+            element.onblur = function () {
                if (this.value.match(regex)) {
                   // this.value = this.value.replace(regex, '');
                   this.classList.remove('input__error');
                   this.classList.add('input__correct');
+                  this.previousSibling.textContent = 'Помилка! Введіть адресу в форматі example@exam.com';
                } else {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
-               }
+                  // console.log(element.closest('label'))
+                  this.previousSibling.textContent = 'Електронна пошта *';
+               };
             }
          }
       }
+
 
       let phone = document.querySelectorAll('.phone');
       if (phone.length) {
