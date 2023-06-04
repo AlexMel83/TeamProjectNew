@@ -139,7 +139,8 @@
   }
 
   .arrow {
-     display: none;
+     /* display: none; */
+     display: inline-block;
      position: absolute;
      right: 5px;
      top: 7px;
@@ -163,11 +164,11 @@
   }
 
   body.mouse .menu__list>li:hover .sub-menu__list {
-     display: block;
+     display: inline-block;
   }
 
   body.touch .sub-menu__list.open {
-     display: block;
+     display: inline-block;
   }
 
   /* footer */

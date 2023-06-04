@@ -30,7 +30,7 @@
                   <div class="menu__flash"></div>
                   <ul class="menu__list lock-padding">
                      <li>
-                        <a href="#" class="menu__link">Про студію</a>
+                        <a href="#" class="menu__link parent">Про студію</a>
                         <span class="menu__arrow arrow"></span>
                         <ul class="sub-menu__list">
                            <li>
@@ -48,7 +48,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" class="menu__link">Навчання</a>
+                        <a href="#" class="menu__link parent">Навчання</a>
                         <span class="menu__arrow arrow"></span>
                         <ul class="sub-menu__list">
                            <li>
@@ -94,7 +94,8 @@
                <form action="#" class="footer__form">
                   <div class="form__fierstname">
                      <label for="fierstname">Ім’я *</label>
-                     <br><input type="text" class="fierstname" name="fierstname" id="fierstname" placeholder="Ім’я">
+                     <br><input required type="text" class="fierstname" name="fierstname" id="fierstname"
+                        placeholder="Ім’я">
                   </div>
                   <div class="form__">
                      <label for="lastname">Прізвище</label>
@@ -102,12 +103,12 @@
                   </div>
                   <div class="form__ema">
                      <label for="email">Електронна пошта *</label>
-                     <input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
+                     <input required type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
                         autocomplete="on">
                   </div>
                   <div class="form__phone">
                      <label for="phone">Телефон *</label>
-                     <br><input type="text" name="phone" class="phone" id="phone"
+                     <br><input required type="text" name="phone" class="phone" id="phone"
                         placeholder="+38 ( ___ ) ____ - ___- ___" autocomplete="on">
                   </div>
                </form>
@@ -166,20 +167,21 @@
             <form action="#" class="popup__form">
                <div class="form__fierstname">
                   <label for="fierstname">Ім’я *</label>
-                  <br><input type="text" name="fierstname" class="fierstname" id="fierstname" placeholder="Ім’я">
+                  <br><input required type="text" name="fierstname" class="fierstname" id="mfierstname"
+                     placeholder="Ім’я">
                </div>
                <div class="form__">
-                  <label for="lastname">Прізвище</label>
-                  <br><input type="text" name="lastname" class="lastname" id="lastname" placeholder="Прізвище">
+                  <label for="mlastname">Прізвище</label>
+                  <br><input type="text" name="mlastname" class="lastname" id="mlastname" placeholder="Прізвище">
                </div>
                <div class="form__ema">
-                  <label for="email">Електронна пошта *</label>
-                  <br><input type="email" name="email" class="email" id="email" placeholder="email@gmail.com"
+                  <label for="memail">Електронна пошта *</label>
+                  <br><input required type="memail" name="email" class="email" id="memail" placeholder="email@gmail.com"
                      autocomplete="on">
                </div>
                <div class="form__phone">
-                  <label for="phone">Телефон *</label>
-                  <br><input type="number" name="phone" class="phone" id="phone"
+                  <label for="mphone">Телефон *</label>
+                  <br><input required type="text" name="mphone" class="phone" id="mphone"
                      placeholder="+38 ( ___ ) ____ - ___- ___" autocomplete="on">
                </div>
             </form>
@@ -272,7 +274,7 @@
                   element.value = element.value.slice(0, -1);
             }
             element.onblur = function () {
-               if (element.value.length < 10) {
+               if (element.value.length < 10 || element.value[0] != 0) {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
                } else {
@@ -292,6 +294,7 @@
          });
       });
       /*sub-menu arrow*/
+
       let isMobile = {
          Android: function () { return navigator.userAgent.match(/Android/i); },
          BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); },
@@ -309,7 +312,7 @@
             let subMenu = arrow[i].nextElementSibling;
             let thisArrow = arrow[i];
 
-            thisLink.classList.add('parent');
+            // thisLink.classList.add('parent');
             arrow[i].addEventListener('click', function () {
                subMenu.classList.toggle('open');
                thisArrow.classList.toggle('active');
