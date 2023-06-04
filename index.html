@@ -199,15 +199,18 @@
       if (fierstname.length) {
          for (let i = 0; i < fierstname.length; i++) {
             let regex = /[^A-Za-zА-Яа-яіІёЁїЇ']/g;
-            fierstname[i].oninput = function () {
-               this.value = this.value.replace(regex, '');
-               if (this.value.length >= 2) {
-                  this.classList.remove('input__error');
-                  this.classList.add('input__correct');
-               } else {
+            let element = fierstname[i];
+            element.oninput = function () {
+               element.value = element.value.replace(regex, '');
+            }
+            element.onblur = function () {
+               if (element.value.length < 2) {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
-               }
+               } else {
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               };
             }
          }
       }
@@ -216,15 +219,18 @@
       if (lastname.length) {
          for (let i = 0; i < lastname.length; i++) {
             let regex = /[^A-Za-zА-Яа-яіІёЁїЇ']/g;
-            lastname[i].oninput = function () {
-               this.value = this.value.replace(regex, '');
-               if (this.value.length >= 2) {
-                  this.classList.remove('input__error');
-                  this.classList.add('input__correct');
-               } else {
+            let element = lastname[i];
+            element.oninput = function () {
+               element.value = element.value.replace(regex, '');
+            }
+            element.onblur = function () {
+               if (element.value.length < 2) {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
-               }
+               } else {
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               };
             }
          }
       }
@@ -233,7 +239,7 @@
       if (email.length) {
          for (let i = 0; i < email.length; i++) {
             let regex = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,6}$/;
-            let regexcyr = /[а-яА-ЯіІ]/g;
+            let regexcyr = /[а-яА-ЯіІїЇёЁ]/g;
             let element = email[i];
             element.oninput = function () {
                this.value = this.value.replace(regexcyr, '');
@@ -243,12 +249,12 @@
                   // this.value = this.value.replace(regex, '');
                   this.classList.remove('input__error');
                   this.classList.add('input__correct');
-                  this.previousSibling.textContent = 'Помилка! Введіть адресу в форматі example@exam.com';
+                  // this.previousElementSibling.textContent = 'Електронна пошта *';
                } else {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
                   // console.log(element.closest('label'))
-                  this.previousSibling.textContent = 'Електронна пошта *';
+                  // this.previousElementSibling.textContent = 'Помилка!';
                };
             }
          }
@@ -259,18 +265,20 @@
       if (phone.length) {
          for (let i = 0; i < phone.length; i++) {
             let regex = /[^0-9]/;
-            phone[i].oninput = function () {
-               this.value = this.value.replace(regex, '');
-               if (this.value.length == 12) {
-                  // this.value = this.value.replace(regex, '');
-                  this.classList.remove('input__error');
-                  this.classList.add('input__correct');
-               } else {
+            let element = phone[i];
+            element.oninput = function () {
+               element.value = element.value.replace(regex, '');
+               if (element.value.length > 10)
+                  element.value = element.value.slice(0, -1);
+            }
+            element.onblur = function () {
+               if (element.value.length < 10) {
                   this.classList.remove('input__correct');
                   this.classList.add('input__error');
-               }
-               if (this.value.length > 12)
-                  this.value = this.value.slice(0, -1);
+               } else {
+                  this.classList.remove('input__error');
+                  this.classList.add('input__correct');
+               };
             }
          }
       }

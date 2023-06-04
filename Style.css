@@ -210,6 +210,8 @@
      font-size: 16px;
      line-height: 22px;
      margin-bottom: 24px;
+     padding: 12px;
+     color: #A47E7E;
   }
 
   input:hover {
@@ -217,18 +219,21 @@
      border: 1px solid #98D198;
   }
 
-  input:focus {
-     border: 2px solid #2C6716;
-     outline: 0 none;
-  }
-
   input.input__error {
      background: #EEFBEA;
      border: 1px solid #B60C0C;
+     color: #A47E7E;
   }
 
   input.input__correct {
      border: none;
+     color: #A47E7E;
+  }
+
+  input:focus {
+     border: 2px solid #2C6716;
+     outline: 0 none;
+     color: #0B0B0B;
   }
 
   .footer__submit {
